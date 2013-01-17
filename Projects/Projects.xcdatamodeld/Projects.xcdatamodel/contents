@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1810" systemVersion="11G63b" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Milestone" syncable="YES">
+        <attribute name="dueDate" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="project" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="milestones" inverseEntity="Project" syncable="YES"/>
+        <relationship name="todos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Todo" inverseName="milestone" inverseEntity="Todo" syncable="YES"/>
+    </entity>
+    <entity name="Project" syncable="YES">
+        <attribute name="descr" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="milestones" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Milestone" inverseName="project" inverseEntity="Milestone" syncable="YES"/>
+        <relationship name="sketches" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sketch" inverseName="project" inverseEntity="Sketch" syncable="YES"/>
+    </entity>
+    <entity name="Sketch" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="project" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="sketches" inverseEntity="Project" syncable="YES"/>
+    </entity>
+    <entity name="Todo" syncable="YES">
+        <attribute name="complete" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="milestone" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Milestone" inverseName="todos" inverseEntity="Milestone" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Project" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Milestone" positionX="-108" positionY="198" width="135" height="90"/>
+        <element name="Todo" positionX="27" positionY="225" width="128" height="90"/>
+        <element name="Sketch" positionX="36" positionY="252" width="128" height="75"/>
+    </elements>
 </model>

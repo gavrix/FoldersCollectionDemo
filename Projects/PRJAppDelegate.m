@@ -7,6 +7,7 @@
 //
 
 #import "PRJAppDelegate.h"
+#import "PRJViewController.h"
 
 @implementation PRJAppDelegate
 
@@ -20,6 +21,8 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    self.window.rootViewController = [[PRJViewController alloc] initWithNibName:nil bundle:nil];
     return YES;
 }
 
