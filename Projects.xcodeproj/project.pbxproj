@@ -27,6 +27,10 @@
 		24DD589E16A7CBC70034FC35 /* PRJFoldersLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD589D16A7CBC70034FC35 /* PRJFoldersLayoutAttributes.m */; };
 		24DD58A216A8611B0034FC35 /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 24DD58A016A8611B0034FC35 /* folder.png */; };
 		24DD58A316A8611B0034FC35 /* folder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24DD58A116A8611B0034FC35 /* folder@2x.png */; };
+		24DD58A916A90AC80034FC35 /* folder_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 24DD58A516A90AC80034FC35 /* folder_back.png */; };
+		24DD58AA16A90AC80034FC35 /* folder_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24DD58A616A90AC80034FC35 /* folder_back@2x.png */; };
+		24DD58AB16A90AC80034FC35 /* folder_front.png in Resources */ = {isa = PBXBuildFile; fileRef = 24DD58A716A90AC80034FC35 /* folder_front.png */; };
+		24DD58AC16A90AC80034FC35 /* folder_front@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24DD58A816A90AC80034FC35 /* folder_front@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +63,10 @@
 		24DD589D16A7CBC70034FC35 /* PRJFoldersLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRJFoldersLayoutAttributes.m; sourceTree = "<group>"; };
 		24DD58A016A8611B0034FC35 /* folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder.png; sourceTree = "<group>"; };
 		24DD58A116A8611B0034FC35 /* folder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "folder@2x.png"; sourceTree = "<group>"; };
+		24DD58A516A90AC80034FC35 /* folder_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder_back.png; sourceTree = "<group>"; };
+		24DD58A616A90AC80034FC35 /* folder_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "folder_back@2x.png"; sourceTree = "<group>"; };
+		24DD58A716A90AC80034FC35 /* folder_front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder_front.png; sourceTree = "<group>"; };
+		24DD58A816A90AC80034FC35 /* folder_front@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "folder_front@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +178,10 @@
 		24DD589F16A8611B0034FC35 /* Res */ = {
 			isa = PBXGroup;
 			children = (
+				24DD58A516A90AC80034FC35 /* folder_back.png */,
+				24DD58A616A90AC80034FC35 /* folder_back@2x.png */,
+				24DD58A716A90AC80034FC35 /* folder_front.png */,
+				24DD58A816A90AC80034FC35 /* folder_front@2x.png */,
 				24DD58A016A8611B0034FC35 /* folder.png */,
 				24DD58A116A8611B0034FC35 /* folder@2x.png */,
 			);
@@ -235,6 +247,10 @@
 				24BE306016A51A7D00774EA9 /* PRJViewController.xib in Resources */,
 				24DD58A216A8611B0034FC35 /* folder.png in Resources */,
 				24DD58A316A8611B0034FC35 /* folder@2x.png in Resources */,
+				24DD58A916A90AC80034FC35 /* folder_back.png in Resources */,
+				24DD58AA16A90AC80034FC35 /* folder_back@2x.png in Resources */,
+				24DD58AB16A90AC80034FC35 /* folder_front.png in Resources */,
+				24DD58AC16A90AC80034FC35 /* folder_front@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

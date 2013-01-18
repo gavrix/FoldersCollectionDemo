@@ -80,11 +80,12 @@
             layoutAttrs.center = CGPointMake(CGRectGetMidX(frameRect), CGRectGetHeight(self.collectionView.bounds)/2.0);
 
             CGFloat c = ABS(CGRectGetMidX(self.collectionView.bounds)
-                            - CGRectGetMidX(layoutAttrs.frame))/(CGRectGetWidth(self.collectionView.bounds)/2.0);
-            
-            layoutAttrs.transform3D = CATransform3DMakeScale(MAX(1,(1.0-c)*1.5), MAX(1,(1.0-c)*1.5), MAX(1,(1.0-c)*1.5));
+                            - CGRectGetMidX(layoutAttrs.frame))/(CGRectGetWidth(self.collectionView.bounds)/3.0);
 
-            layoutAttrs.openState =  MAX(0,(1.0-c)*.50);
+            CGFloat scale = MAX(1,(1.0-c*0.5)*2);
+            layoutAttrs.transform3D = CATransform3DMakeScale(scale, scale, scale);
+
+            layoutAttrs.openState =  MAX(0,(1.0-c)*.85);
             [arr addObject:layoutAttrs];
         }
     }
@@ -99,24 +100,25 @@
 
 -(UICollectionViewLayoutAttributes*)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    PRJFoldersLayoutAttributes* layoutAttrs = [PRJFoldersLayoutAttributes
-                                                       layoutAttributesForCellWithIndexPath:indexPath];
-    CGRect frame = CGRectMake([_itemsDict[indexPath][@"width"] floatValue],0,
-                              [_itemsDict[indexPath][@"height"] floatValue],
-                              _contentSize.height);
-//    layoutAttrs.frame = frame;
-    CGFloat c = ABS(CGRectGetMidX(self.collectionView.bounds)
-                    - CGRectGetMidX(layoutAttrs.frame))/(CGRectGetWidth(self.collectionView.bounds)/2.0);
-
-    layoutAttrs.size = frame.size;
-    layoutAttrs.center = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame));
-    layoutAttrs.transform3D = CATransform3DMakeScale(MAX(1,(1-c)*2), MAX(1,(1-c)*2), 1);
-    
-    layoutAttrs.openState =  MAX(0,(1.0-c)*.50);
-    
-    
-    
-    return layoutAttrs;
+//    PRJFoldersLayoutAttributes* layoutAttrs = [PRJFoldersLayoutAttributes
+//                                                       layoutAttributesForCellWithIndexPath:indexPath];
+//    CGRect frame = CGRectMake([_itemsDict[indexPath][@"width"] floatValue],0,
+//                              [_itemsDict[indexPath][@"height"] floatValue],
+//                              _contentSize.height);
+////    layoutAttrs.frame = frame;
+//    CGFloat c = ABS(CGRectGetMidX(self.collectionView.bounds)
+//                    - CGRectGetMidX(layoutAttrs.frame))/(CGRectGetWidth(self.collectionView.bounds)/2.0);
+//
+//    layoutAttrs.size = frame.size;
+//    layoutAttrs.center = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame));
+//    layoutAttrs.transform3D = CATransform3DMakeScale(MAX(1,(1-c)*2), MAX(1,(1-c)*2), 1);
+//    
+//    layoutAttrs.openState =  MAX(0,(1.0-c)*.50);
+//    
+//    
+//    
+//    return layoutAttrs;
+    return NULL;
 }
 
 
