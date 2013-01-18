@@ -76,13 +76,14 @@
             PRJFoldersLayoutAttributes* layoutAttrs = [PRJFoldersLayoutAttributes
                                                              layoutAttributesForCellWithIndexPath:[NSIndexPath indexPathForItem:item inSection:0]];
 //            layoutAttrs.frame = frameRect;
-            layoutAttrs.size = frameRect.size;
+            layoutAttrs.size = CGSizeMake(frameRect.size.width*2, frameRect.size.height*2);
+            
             layoutAttrs.center = CGPointMake(CGRectGetMidX(frameRect), CGRectGetHeight(self.collectionView.bounds)/2.0);
 
             CGFloat c = ABS(CGRectGetMidX(self.collectionView.bounds)
                             - CGRectGetMidX(layoutAttrs.frame))/(CGRectGetWidth(self.collectionView.bounds)/3.0);
 
-            CGFloat scale = MAX(1,(1.0-c*0.5)*2);
+            CGFloat scale = MAX(1,(1.0-c*0.5)*2)/2.0;
             layoutAttrs.transform3D = CATransform3DMakeScale(scale, scale, scale);
 
             layoutAttrs.openState =  MAX(0,(1.0-c)*.85);
