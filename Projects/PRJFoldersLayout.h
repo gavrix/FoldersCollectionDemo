@@ -11,7 +11,7 @@
 @class PRJFoldersLayout;
 
 @protocol PRJFoldersLayoutDelegate<NSObject>
--(CGFloat) collectionView:(UICollectionView*) collectionView
+- (CGFloat)collectionView:(UICollectionView*) collectionView
                    layout:(PRJFoldersLayout *)collectionViewLayout
   widthForItemAtIndexPath:(NSIndexPath*) indexPath;
 

@@ -9,16 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface PRJFolderVIew : UIView
-{
-    UIView* _frontFolderSideView;
+@interface PRJFolderVIew : UIView {
+    UIView *_frontFolderSideView;
 
-    CAGradientLayer* _frontFolderSideShadow;
-    CALayer* _frontFolderSideShadowMask;
-    CALayer* _backFolderSideShadow;
-    CALayer* _backFolderSideShadowMask;
+    CAGradientLayer *_frontFolderSideShadow;
+    CALayer *_frontFolderSideShadowMask;
+    CALayer *_backFolderSideShadow;
+    CALayer *_backFolderSideShadowMask;
     
-    UIView* _backFolderSideView;
+    UIView *_backFolderSideView;
 }
 
 //0.0-1.0

@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 @class PRJFolderVIew;
 
-@interface PRJViewController : UIViewController
-{
-    
+@interface PRJViewController : UIViewController {    
     __weak IBOutlet PRJFolderVIew *_folderView;
     __weak IBOutlet UISlider *_openStateSlider;
 }

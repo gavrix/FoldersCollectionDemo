@@ -11,9 +11,16 @@
 @implementation PRJFoldersLayoutAttributes
 @synthesize openState;
 
--(id)copyWithZone:(NSZone *)zone{
-    PRJFoldersLayoutAttributes* _self = [super copyWithZone:zone];
+- (instancetype)copyWithZone:(NSZone *)zone {
+    PRJFoldersLayoutAttributes *_self = [super copyWithZone:zone];
     _self.openState = self.openState;
     return _self;
+}
+
+- (BOOL)isEqual:(id)object {
+    if ([object isKindOfClass:[self class]]) {
+        return [super isEqual:object] && self.openState == [(PRJFoldersLayoutAttributes *)object openState];
+    }
+    return NO;
 }
 @end

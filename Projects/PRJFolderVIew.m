@@ -18,7 +18,7 @@
 #pragma mark - Construction
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
--(void) commonInit{
+- (void)commonInit {
     _frontFolderSideView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"folder_front.png"]];
     _frontFolderSideView.layer.anchorPoint = CGPointMake(0, 1);
 
@@ -70,7 +70,7 @@
 //    self.backgroundColor = [UIColor whiteColor];
 }
 
--(id)initWithCoder:(NSCoder *)aDecoder{
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self commonInit];
@@ -78,7 +78,7 @@
     return self;
 }
 
-- (id)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         [self commonInit];
@@ -87,46 +87,48 @@
 }
 
 
--(void)layoutSubviews{
+- (void)layoutSubviews {
     [super layoutSubviews];
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+
+    
     _frontFolderSideView.frame = CGRectInset(self.bounds, 0, 0);
    
     _backFolderSideView.frame = CGRectInset(self.bounds, 0, 0);
     CATransform3D transform = CATransform3DIdentity;
-    transform.m34 = -1/(CGRectGetWidth(self.bounds)*4);
+    transform.m34 = -1 / (CGRectGetWidth(self.bounds) * 4);
 
     _frontFolderSideShadowMask.frame = _frontFolderSideView.layer.bounds;
     _frontFolderSideShadow.frame = self.bounds;
     
     _backFolderSideShadowMask.frame = _backFolderSideView.layer.bounds;
     
-    [CATransaction begin];
-    [CATransaction setDisableActions:YES];
     
-    CATransform3D translation = CATransform3DTranslate(transform, 20*_openState, -10*_openState , -10*_openState);
+    CATransform3D translation = CATransform3DTranslate(transform, 20 * _openState, -10 * _openState , -10 * _openState);
     
     _frontFolderSideView.layer.transform = CATransform3DRotate(
-                                                               CATransform3DRotate(translation, -M_PI_2/5, 1, 0, .1*MIN(1.0,_openState))
-                                                               ,-M_PI_2*_openState, 0, 1, 0);
+                                                               CATransform3DRotate(translation, -M_PI_2/5, 1, 0, .1 * MIN(1.0,_openState))
+                                                               ,-M_PI_2 * _openState, 0, 1, 0);
 
     _backFolderSideShadow.shadowPath = [UIBezierPath bezierPathWithRect:_frontFolderSideView.frame].CGPath;
-    _backFolderSideShadow.shadowOpacity = (ABS(-M_PI_2*_openState)<M_PI_2)?(1-_openState)*(_openState)*3:0;
-    _backFolderSideShadow.shadowRadius = 5+5*_openState;
+    _backFolderSideShadow.shadowOpacity = (ABS(-M_PI_2 * _openState) < M_PI_2)?(1 - _openState) * (_openState) * 3:0;
+    _backFolderSideShadow.shadowRadius = 5 + 5 * _openState;
     
-    _frontFolderSideShadow.opacity = (ABS(-M_PI_2*_openState)<M_PI_2)?_openState:0;
+    _frontFolderSideShadow.opacity = (ABS(-M_PI_2 * _openState) < M_PI_2) ? _openState : 0;
     
     _backFolderSideView.layer.transform = CATransform3DRotate(
-                                                         CATransform3DRotate(translation, -M_PI_2/5, 1, 0, .1*MIN(1.0,_openState))
-                                                         ,-M_PI_2*_openState*.4, 0, 1, 0);
+                                                         CATransform3DRotate(translation, -M_PI_2/5, 1, 0, .1 * MIN(1.0, _openState))
+                                                         ,-M_PI_2 * _openState * .4, 0, 1, 0);
     [CATransaction commit];
     
 }
 
 
--(void)setOpenState:(CGFloat)openState{
+- (void)setOpenState:(CGFloat)openState {
+    if (ABS(openState) > 0.1) {
+        [self setNeedsLayout];
+    }
     _openState = openState;
-    [self setNeedsLayout];
-    
-
 }
 @end

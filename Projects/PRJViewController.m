@@ -12,11 +12,10 @@
 #import "PRJFoldersLayout.h"
 
 
-static NSString* kFolderCellIdentifier = @"kFolderCellIdentifier";
+static NSString *kFolderCellIdentifier = @"kFolderCellIdentifier";
 
-@interface PRJViewController ()<UICollectionViewDataSource, PRJFoldersLayoutDelegate>
-{
-    NSArray* _folders;
+@interface PRJViewController ()<UICollectionViewDataSource, PRJFoldersLayoutDelegate> {
+    NSArray *_folders;
     __weak IBOutlet UICollectionView *_collectionView;
     
 }
@@ -24,12 +23,11 @@ static NSString* kFolderCellIdentifier = @"kFolderCellIdentifier";
 
 @implementation PRJViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        NSMutableArray* arr = [@[] mutableCopy];
-        for(int i=0;i<20;i++){
+        NSMutableArray *arr = [@[] mutableCopy];
+        for (int i = 0; i < 20; i++) {
             [arr addObject:@(i)];
         }
         _folders = arr.copy;
@@ -37,22 +35,18 @@ static NSString* kFolderCellIdentifier = @"kFolderCellIdentifier";
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     [_collectionView registerClass:[PRJFolderViewCell class]
         forCellWithReuseIdentifier:kFolderCellIdentifier];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (IBAction)_openStateValueChanged:(id)sender {
     _folderView.openState = _openStateSlider.value;
+    CGFloat scale = 1 + _openStateSlider.value;
+    _folderView.layer.transform = CATransform3DMakeScale(scale, scale, scale);
 }
 
 
@@ -60,23 +54,23 @@ static NSString* kFolderCellIdentifier = @"kFolderCellIdentifier";
 #pragma mark - Collection view
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
 }
 
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return _folders.count;
 }
 
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
-cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    PRJFolderViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:kFolderCellIdentifier
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    PRJFolderViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kFolderCellIdentifier
                                                                         forIndexPath:indexPath];
 //    cell.frame = CGRectMake(0, 0, 50, 50);
     return cell;
 }
 
--(CGFloat)collectionView:(UICollectionView *)collectionView
+- (CGFloat)collectionView:(UICollectionView *)collectionView
                   layout:(PRJFoldersLayout *)collectionViewLayout
  widthForItemAtIndexPath:(NSIndexPath *)indexPath{
     return 100;

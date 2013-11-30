@@ -16,8 +16,7 @@
     PRJFolderVIew* _folderView;
 }
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         _folderView = [[PRJFolderVIew alloc] initWithFrame:self.bounds];
@@ -26,16 +25,16 @@
     return self;
 }
 
--(void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes{
+- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes{
     [super applyLayoutAttributes:layoutAttributes];
     
-    if([layoutAttributes isKindOfClass:[PRJFoldersLayoutAttributes class]]){
-        CGFloat openState = [(PRJFoldersLayoutAttributes*)layoutAttributes openState];
+    if ([layoutAttributes isKindOfClass:[PRJFoldersLayoutAttributes class]]) {
+        CGFloat openState = [(PRJFoldersLayoutAttributes *)layoutAttributes openState];
         [_folderView setOpenState: openState];
     }
 }
 
--(void)layoutSubviews{
+- (void)layoutSubviews {
     [super layoutSubviews];
 //    _folderView.frame = CGRectMake(CGRectGetMidX(self.bounds) - 50,
 //               CGRectGetMidY(self.bounds)-50, 100, 100);
